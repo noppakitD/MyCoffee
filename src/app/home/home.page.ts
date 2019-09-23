@@ -35,7 +35,7 @@ export class HomePage {
   ionViewDidEnter() {
     interval(10000).subscribe(() => {
       this.api.getLastValue();
-      console.log('test')
+      console.log('new')
       this.data = [{
         totalCup: this.api.sensorData[0],
         tempOfWater: this.api.sensorData[1],

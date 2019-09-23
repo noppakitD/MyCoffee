@@ -14,12 +14,13 @@ export class CoffeeService {
   // fn name: GetTenantToken
   // description : Used for receiving tenant token  
   // author : noppakit dononbout
-  // last update: 25/07/2562
+  // last update: 25/07/2562 "Access-Control-Allow-Origin": "*", 
   GetTenantToken() {
+    let headers = new HttpHeaders().set("Access-Control-Allow-Origin", "* " )
     return this.http.post(this.baseUrl + '/api/auth/login', {
       username: this.user,
       password: this.pass
-    })
+    },{ headers: headers })
   }//end fn GetTenantToken
  // http://lab.mfec-iot.club:8181/api/plugins/telemetry/DEVICE/fe96a7d0-d5f9-11e9-97da-f3a25bbbd3f7/values/timeseries?keys=Counter_Cup,Sensor_D_1
   async getLastValue() {
@@ -45,10 +46,18 @@ export class CoffeeService {
       console.log(respon['Sensor_C_1'][0]['value']);
       console.log(respon['Sensor_X_1'][0]['value']);
       console.log(respon['Sensor_X_2'][0]['value']);
-      })
+      },
+      async err => {
+        // this.ErrorRegister(err);
+        console.log("fail getdata");
+        console.log(err);
+        this.sensorData[4] = err;
+      });
     },
     async err => {
-      // this.ErrorRegister(err);
+      
+      console.log("fail login")
+      console.log(JSON.stringify(err));
       console.log(err);
       this.sensorData[4] = err;
     });
