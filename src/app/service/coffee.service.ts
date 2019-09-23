@@ -63,6 +63,7 @@ export class CoffeeService {
         message: 'Email already exists!.',
         duration: 2000
       });
+      
       toast.present();
     } else {
       const toast = await this.toastController.create({
