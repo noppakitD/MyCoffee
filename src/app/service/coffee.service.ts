@@ -29,6 +29,7 @@ export class CoffeeService {
       //   this.storage.set('headers', headers)
       // http://lab.mfec-iot.club:8181/api/plugins/telemetry/DEVICE/fe96a7d0-d5f9-11e9-97da-f3a25bbbd3f7/keys/timeseries
       this.http.get('http://lab.mfec-iot.club:8181/api/plugins/telemetry/DEVICE/fe96a7d0-d5f9-11e9-97da-f3a25bbbd3f7/values/timeseries?keys=Sensor_C_1,Counter_Cup,Sensor_X_1,Sensor_X_2', { headers: headers }).subscribe((respon)=>{
+      console.log("success"); 
       console.log(respon);
       this.sensorData[4] = respon;
       this.sensorData[0] = respon['Counter_Cup'][0]['value'];
@@ -47,7 +48,7 @@ export class CoffeeService {
       })
     },
     async err => {
-      this.ErrorRegister(err);
+      // this.ErrorRegister(err);
       console.log(err);
       this.sensorData[4] = err;
     });
