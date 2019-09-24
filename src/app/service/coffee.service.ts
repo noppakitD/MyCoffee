@@ -85,6 +85,8 @@ export class CoffeeService {
     //'https://jsonplaceholder.typicode.com/todos/1'
     this.http.get("https://jsonplaceholder.typicode.com/todos/1").subscribe((result)=>{
       console.log(JSON.stringify(result))
+      this.sensorData[4] = JSON.stringify(result)
+        
     })
   }
 }
