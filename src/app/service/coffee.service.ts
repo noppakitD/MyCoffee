@@ -81,5 +81,10 @@ export class CoffeeService {
       toast.present();
     }
   }//end fn ErrorRegister
-  
+  testApi(){
+    //'https://jsonplaceholder.typicode.com/todos/1'
+    this.http.get("http://dummy.restapiexample.com/api/v1/employees").subscribe((result)=>{
+      console.log(result)
+    })
+  }
 }

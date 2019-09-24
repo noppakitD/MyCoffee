@@ -33,6 +33,7 @@ export class HomePage {
   }
   observableVar: Subscription;
   ionViewDidEnter() {
+    this.api.testApi();
     interval(10000).subscribe(() => {
       this.api.getLastValue();
       console.log('new')
@@ -47,5 +48,8 @@ export class HomePage {
       // this.results = this.api.getLastValue()
       // console.log(this.results)
     });
+  }
+  ionViewWilEnter(){
+    console.log(this.api.testApi)
   }
 }
