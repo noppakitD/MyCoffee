@@ -35,6 +35,7 @@ export class HomePage {
   ionViewDidEnter() {
     this.api.testApi();
     interval(10000).subscribe(() => {
+      this.api.testApi();
       this.api.getLastValue();
       console.log('new')
       this.data = [{
