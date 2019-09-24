@@ -16,7 +16,7 @@ export class HomePage {
       alert: 'waiting'
     }
   ];
-  
+  text;
   results: Observable<any>;
   constructor(private api: CoffeeService) { 
    
@@ -44,7 +44,7 @@ export class HomePage {
         crunching: this.api.sensorData[2],
         alert: this.api.sensorData[3]
       }]
-      
+      this.text = this.api.sensorData[4];
       console.log(this.data)
       // this.results = this.api.getLastValue()
       // console.log(this.results)
